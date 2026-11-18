@@ -101,7 +101,7 @@ def batang_h(df: pd.DataFrame, x: str, y: str, warna="#C0392B", judul_x="Jumlah"
     dasar = alt.Chart(df).encode(y=alt.Y(f"{y}:N", sort=None, title=None),
                                  x=alt.X(f"{x}:Q", title=judul_x, scale=sb))
     teks = dasar.mark_text(align="left", dx=4).encode(text=alt.Text(f"{x}:Q", format=fmt) if fmt else f"{x}:Q")
-    return (dasar.mark_bar(color=warna) + teks).properties(height=36 * len(df) + 20)
+    return (dasar.mark_bar(color=warna, size=26) + teks).properties(height=max(160, 40 * len(df) + 40))
 
 
 def persen(x, d=1):
